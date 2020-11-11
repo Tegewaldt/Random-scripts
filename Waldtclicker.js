@@ -66,8 +66,12 @@ function Breakpointcalc(){
     document.getElementById("bakeryName").innerHTML=oldtext+"<br>"+formatstr+Beautify(Game.cookiesPsRaw*84000)+"</span>";
   }
 }
-
+function initWaldt(){
 setInterval(function(){
   Breakpointcalc();
   CalcIndmad();
 },300);
+}
+Game.registerMod("WaldtMod", initWaldt);
+
+
