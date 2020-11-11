@@ -1,13 +1,17 @@
-var formatstr ="";
+//Waldtens mod
+Game.registerMod('Waldtens Cookie mod',{
+
+init:function(){var formatstr ="";
 var oldtext=document.getElementById("bakeryName").innerHTML;
 var indmad=[];
-var ranks=[];
+var ranks=[];},
+save:function(){},
+load:function(){};
 
 function getColor(value){
     var h=((1-value)*120).toString(10);
     var s=60/100;
     var l=50/100;
-
 
   let c = (1 - Math.abs(2 * l - 1)) * s,
       x = c * (1 - Math.abs((h / 60) % 2 - 1)),
@@ -51,7 +55,7 @@ function CalcIndmad(){
       ranks[i]=(item-1)/(ranks.length-1);
     });
     for (var i_waldt = 0; i_waldt < Game.ObjectsById.length; i_waldt++) {
-      Game.ObjectsById[i_waldt].desc=Game.ObjectsById[i_waldt].desc.split(".")[0]+".<br><span style='font-weight:bold;font-size:12px;color:"+String(getColor(ranks[i_waldt]))+";'> Efficiency Ranking"+Math.round(indmad[i_waldt] * 10) / 10+"</span>";
+      Game.ObjectsById[i_waldt].desc=Game.ObjectsById[i_waldt].desc.split(".")[0]+".<br><span style='font-weight:bold;font-size:12px;color:"+String(getColor(ranks[i_waldt]))+";'> Efficiency Ranking: "+Math.round(indmad[i_waldt] * 10) / 10+"</span>";
     }
 }
 
@@ -66,12 +70,8 @@ function Breakpointcalc(){
     document.getElementById("bakeryName").innerHTML=oldtext+"<br>"+formatstr+Beautify(Game.cookiesPsRaw*84000)+"</span>";
   }
 }
-function initWaldt(){
 setInterval(function(){
   Breakpointcalc();
   CalcIndmad();
 },300);
-}
-Game.registerMod("WaldtMod", initWaldt);
-
-
+});
