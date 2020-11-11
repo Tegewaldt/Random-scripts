@@ -19,7 +19,7 @@ function CalcIndmad(){
       item=(item-1)/(ranks.length-1);
     });
     for (var i_waldt = 0; i_waldt < Game.ObjectsById.length; i_waldt++) {
-      Game.ObjectsById[i_waldt].desc=Game.ObjectsById[i_waldt].desc.split(".")[0]+".<br><span style='font-weight:bold;font-size:12px;color:"+getColor(ranks[i_waldt])";'> Efficiency Ranking"+indmad[i_waldt]+"</span>"
+      Game.ObjectsById[i_waldt].desc=Game.ObjectsById[i_waldt].desc.split(".")[0]+".<br><span style='font-weight:bold;font-size:12px;color:"+getColor(ranks[i_waldt])+";'> Efficiency Ranking"+indmad[i_waldt]+"</span>"
     }
 }
 
