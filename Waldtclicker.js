@@ -4,9 +4,7 @@ Game.registerMod('Waldtens Cookie mod',{
 init:function(){var formatstr ="";
 var oldtext=document.getElementById("bakeryName").innerHTML;
 var indmad=[];
-var ranks=[];},
-save:function(){},
-load:function(){};
+var ranks=[];
 
 function getColor(value){
     var h=((1-value)*120).toString(10);
@@ -74,4 +72,8 @@ setInterval(function(){
   Breakpointcalc();
   CalcIndmad();
 },300);
+},
+save:function(){},
+load:function(){},
+
 });
