@@ -7,7 +7,6 @@ function getColor(value){
     var h=((1-value)*120).toString(10);
     var s=60/100;
     var l=50/100;
-  //return ["hsl(",hue,",60%,50%)"].join("");
 
 
   let c = (1 - Math.abs(2 * l - 1)) * s,
@@ -30,11 +29,10 @@ function getColor(value){
   } else if (300 <= h && h < 360) {
     r = c; g = 0; b = x;
   }
-  // Having obtained RGB, convert channels to hex
   r = Math.round((r + m) * 255).toString(16);
   g = Math.round((g + m) * 255).toString(16);
   b = Math.round((b + m) * 255).toString(16);
-  // Prepend 0s, if necessary
+
   if (r.length == 1)
     r = "0" + r;
   if (g.length == 1)
@@ -53,17 +51,17 @@ function CalcIndmad(){
       ranks[i]=(item-1)/(ranks.length-1);
     });
     for (var i_waldt = 0; i_waldt < Game.ObjectsById.length; i_waldt++) {
-      Game.ObjectsById[i_waldt].desc=Game.ObjectsById[i_waldt].desc.split(".")[0]+".<br><span style='font-weight:bold;font-size:12px;color:"+String(getColor(ranks[i_waldt]))+";'> Efficiency Ranking"+indmad[i_waldt]+"</span>"
+      Game.ObjectsById[i_waldt].desc=Game.ObjectsById[i_waldt].desc.split(".")[0]+".<br><span style='font-weight:bold;font-size:12px;color:"+String(getColor(ranks[i_waldt]))+";'> Efficiency Ranking"+Math.round(indmad[i_waldt] * 10) / 10+"</span>";
     }
 }
 
 function Breakpointcalc(){
   if(document.getElementById("bakeryName")){
     if (Game.cookies>=84000*Game.cookiesPsRaw) {
-      formatstr="<span style='font-weight:bold;font-size:14px;color:#90EE90;'>"
+      formatstr="<span style='font-weight:bold;font-size:14px;color:#90EE90;'>";
     }
     else {
-      formatstr="<span style='font-weight:bold;font-size:14px;color:#70a;'>"
+      formatstr="<span style='font-weight:bold;font-size:14px;color:#70a;'>";
     };
     document.getElementById("bakeryName").innerHTML=oldtext+"<br>"+formatstr+Beautify(Game.cookiesPsRaw*84000)+"</span>";
   }
